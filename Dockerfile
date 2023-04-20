@@ -6,6 +6,7 @@ ENV GIT_SSL_NO_VERIFY=true
 RUN git clone https://github.com/awslabs/landing-zone-accelerator-on-aws.git /app
 WORKDIR /app/source
 RUN yarn install --omit=dev
+RUN yarn build
 
 FROM node:lts-slim
 USER node
@@ -13,4 +14,4 @@ COPY --chown=node:node --from=build /app /app
 WORKDIR /app/source
 ENV NODE_OPTIONS="--no-deprecation"
 ENV NODE_ENV production
-ENTRYPOINT ["yarn", "validate-config"]
+ENTRYPOINT ["yarn"]
