@@ -8,7 +8,7 @@ docker run --rm -v (pwd):/lza-config rdkls/aws-lza:latest validate-config /lza-c
 
 # CDK Synth
 Run cdk synth - will pick up everything  
-**Note this mounts your AWS creds into the container**
+**Note this mounts your AWS creds into the container**  
 Note also this may require more mem, if it gets killed try e.g. colima stop && colima start --memory 4
 
 ```
